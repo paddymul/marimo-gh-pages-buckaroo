@@ -7,9 +7,13 @@ app = marimo.App(width="medium")
 @app.cell
 def _():
     import marimo as mo
+@app.cell
+def _():
     import pandas as pd
     import numpy as np
-    from buckaroo.buckaroo_widget import BuckarooInfiniteWidget
+    import micropip
+    await micropip.install("buckaroo")
+    from buckaroo import BuckarooInfiniteWidget
     return BuckarooInfiniteWidget, mo, np, pd
 
 
