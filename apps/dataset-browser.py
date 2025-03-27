@@ -7,16 +7,17 @@ app = marimo.App(width="medium")
 @app.cell
 def _():
     import marimo as mo
-    return mo
+    return (mo,)
+
 
 @app.cell
-def _():
-    import pandas as pd
-    import numpy as np
+async def _():
     import micropip
     await micropip.install("buckaroo")
+    import pandas as pd
+    import numpy as np
     from buckaroo import BuckarooInfiniteWidget
-    return BuckarooInfiniteWidget, mo, np, pd
+    return BuckarooInfiniteWidget, np, pd
 
 
 @app.cell
